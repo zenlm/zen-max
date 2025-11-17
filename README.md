@@ -242,17 +242,23 @@ tools = {
 
 ## Hardware Requirements
 
-### Inference (INT4)
-- **VRAM**: ~30-40 GB (INT4 quantized)
-- **RAM**: 64 GB recommended
-- **Storage**: ~60 GB for full model + quantizations
-- **GPU**: A100 40GB or 2× RTX 4090
+### Inference (INT4 from HuggingFace)
+- **Model Size**: ~370GB (62 safetensors shards, INT4 quantized)
+- **Minimum**: 247GB combined RAM+VRAM+Disk
+- **Optimal**: 370GB+ RAM+VRAM for 5+ tokens/s
+- **Budget Setup**: 1x 24GB GPU + 256GB RAM (~1-2 tokens/s)
+- **High Performance**: 4x A100 80GB or 8x A100 40GB
 
-### Training
-- **VRAM**: ~80-160 GB (full precision)
-- **RAM**: 256 GB recommended
-- **GPUs**: 4-8× A100 80GB for fine-tuning
-- **Storage**: ~120 GB for checkpoints
+### Alternative: GGUF Quantizations (Unsloth)
+- **1.66-bit (UD-TQ1_0)**: 245GB - fits on 247GB combined RAM+VRAM
+- **2.71-bit (UD-Q2_K_XL)**: 381GB - recommended for accuracy
+- **4.5-bit (UD-Q4_K_XL)**: 588GB - near full precision
+
+### QLoRA Training
+- **VRAM**: ~500GB total (370GB model + 130GB activations)
+- **GPUs**: 4x A100 80GB or 8x A100 40GB
+- **Training Time**: 4-8 hours for 1000 steps
+- **Output**: LoRA adapters (~100MB)
 
 ## Format Availability
 
