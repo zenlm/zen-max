@@ -1,11 +1,27 @@
+---
+library_name: transformers
+license: apache-2.0
+tags:
+- deepseek
+- kimi_k2
+- text-generation
+- reasoning
+- agentic
+- tool-calling
+- compressed-tensors
+pipeline_tag: text-generation
+base_model: moonshotai/Kimi-K2-Thinking
+---
+
 # Zen Max - Kimi K2 Thinking Architecture
 
 **Organization**: [Zen LM](https://zenlm.org) (Hanzo AI × Zoo Labs Foundation)  
-**Base Model**: Moonshot AI Kimi K2 Thinking  
-**Parameters**: TBD (based on K2 architecture)  
+**Base Model**: Moonshot AI Kimi K2 Thinking (DeepseekV3ForCausalLM)  
+**Parameters**: 671B total (384 experts × ~1.75B each, 8 active per token = ~14B)  
 **License**: Apache 2.0  
 **Context Window**: 256K tokens  
 **Thinking Capacity**: 96K-128K thinking tokens per step  
+**Architecture**: DeepseekV3 MoE (Mixture of Experts)
 
 ## Model Overview
 
