@@ -29,6 +29,8 @@ Zen Max is a reasoning-first language model built on Moonshot AI's Kimi K2 Think
 
 Built as a **thinking agent**, Zen Max reasons step-by-step while using tools, executing **200-300 sequential tool calls** without human interference, reasoning coherently across hundreds of steps to solve complex problems.
 
+> **Note**: This repository contains configuration files and documentation for Zen Max. The full model weights (~1TB) are available from the base model: [moonshotai/Kimi-K2-Thinking](https://huggingface.co/moonshotai/Kimi-K2-Thinking). Zen-specific fine-tuning instructions and adapters will be provided in future releases.
+
 ### Key Capabilities
 
 #### 1. Agentic Reasoning (HLE: 44.9%)
