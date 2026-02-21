@@ -17,7 +17,7 @@ base_model: moonshotai/Kimi-K2-Thinking
 
 **Organization**: [Zen LM](https://zenlm.org) (Hanzo AI × Zoo Labs Foundation)  
 **Base Model**: Moonshot AI Kimi K2 Thinking (DeepseekV3ForCausalLM)  
-**Parameters**: 671B total (384 experts × ~1.75B each, 8 active per token = ~14B)  
+**Parameters**: 1.04T total (1,044B — MoE with 32B active per token)
 **License**: Apache 2.0  
 **Context Window**: 256K tokens  
 **Thinking Capacity**: 96K-128K thinking tokens per step  
@@ -25,7 +25,7 @@ base_model: moonshotai/Kimi-K2-Thinking
 
 ## Model Overview
 
-Zen Max is a reasoning-first language model built on Moonshot AI's Kimi K2 Thinking architecture, designed for **test-time scaling** through extended thinking and tool-calling capabilities.
+Zen Max is a 1T+ reasoning-first language model built on Moonshot AI's Kimi K2 Thinking architecture, designed for **test-time scaling** through extended thinking and tool-calling capabilities.
 
 Built as a **thinking agent**, Zen Max reasons step-by-step while using tools, executing **200-300 sequential tool calls** without human interference, reasoning coherently across hundreds of steps to solve complex problems.
 
