@@ -2,34 +2,30 @@
 library_name: transformers
 license: apache-2.0
 tags:
-- deepseek
-- kimi_k2
+- zen
 - text-generation
 - reasoning
 - agentic
 - tool-calling
+- moe
 - compressed-tensors
 pipeline_tag: text-generation
-base_model: moonshotai/Kimi-K2-Thinking
 ---
 
-# Zen Max - Kimi K2 Thinking Architecture
+# Zen Max
 
-**Organization**: [Zen LM](https://zenlm.org) (Hanzo AI × Zoo Labs Foundation)  
-**Base Model**: Moonshot AI Kimi K2 Thinking (DeepseekV3ForCausalLM)  
+**Organization**: [Zen LM](https://zenlm.org) (Hanzo AI × Zoo Labs Foundation)
 **Parameters**: 1.04T total (1,044B — MoE with 32B active per token)
-**License**: Apache 2.0  
-**Context Window**: 256K tokens  
-**Thinking Capacity**: 96K-128K thinking tokens per step  
-**Architecture**: DeepseekV3 MoE (Mixture of Experts)
+**License**: Apache 2.0
+**Context Window**: 256K tokens
+**Thinking Capacity**: 96K-128K thinking tokens per step
+**Architecture**: MoE (Mixture of Experts)
 
 ## Model Overview
 
-Zen Max is a 1T+ reasoning-first language model built on Moonshot AI's Kimi K2 Thinking architecture, designed for **test-time scaling** through extended thinking and tool-calling capabilities.
+Zen Max is the largest model in the Zen family — a 1T+ reasoning-first language model designed for **test-time scaling** through extended thinking and tool-calling capabilities.
 
 Built as a **thinking agent**, Zen Max reasons step-by-step while using tools, executing **200-300 sequential tool calls** without human interference, reasoning coherently across hundreds of steps to solve complex problems.
-
-> **Note**: This repository contains configuration files and documentation for Zen Max. The full model weights (~1TB) are available from the base model: [moonshotai/Kimi-K2-Thinking](https://huggingface.co/moonshotai/Kimi-K2-Thinking). Zen-specific fine-tuning instructions and adapters will be provided in future releases.
 
 ### Key Capabilities
 
@@ -116,9 +112,9 @@ Built as a **thinking agent**, Zen Max reasons step-by-step while using tools, e
 
 ## Training Approach
 
-### Base Architecture
-- Kimi K2 Thinking foundation
-- Mixture of Experts (MoE) components
+### Architecture
+- 1.04T parameter Mixture of Experts
+- 32B active parameters per token
 - Extended thinking token support
 - Multi-modal reasoning capabilities
 
@@ -208,8 +204,8 @@ messages = [
 ]
 
 response = model.chat(
-    tokenizer, 
-    messages, 
+    tokenizer,
+    messages,
     mode="heavy",  # 8 parallel rollouts
     thinking_budget=128000,
     enable_reflection=True
@@ -249,7 +245,7 @@ tools = {
 - **Budget Setup**: 1x 24GB GPU + 256GB RAM (~1-2 tokens/s)
 - **High Performance**: 4x A100 80GB or 8x A100 40GB
 
-### Alternative: GGUF Quantizations (Unsloth)
+### Alternative: GGUF Quantizations
 - **1.66-bit (UD-TQ1_0)**: 245GB - fits on 247GB combined RAM+VRAM
 - **2.71-bit (UD-Q2_K_XL)**: 381GB - recommended for accuracy
 - **4.5-bit (UD-Q4_K_XL)**: 588GB - near full precision
@@ -263,13 +259,13 @@ tools = {
 ## Format Availability
 
 ### Current
-- ✅ SafeTensors (BF16, full precision)
-- ✅ INT4 Quantized (native QAT)
+- SafeTensors (BF16, full precision)
+- INT4 Quantized (native QAT)
 
 ### Coming Soon
-- 🔄 GGUF quantizations (Q4_K_M, Q5_K_M, Q8_0)
-- 🔄 MLX optimized formats (4-bit, 8-bit for Apple Silicon)
-- 🔄 ONNX export for edge deployment
+- GGUF quantizations (Q4_K_M, Q5_K_M, Q8_0)
+- MLX optimized formats (4-bit, 8-bit for Apple Silicon)
+- ONNX export for edge deployment
 
 ## Special Features
 
@@ -305,8 +301,7 @@ tools = {
 
 ## Training Data
 
-- **Base Training**: Kimi K2 Thinking pre-training corpus
-- **Zen Fine-Tuning**: 
+- **Zen Fine-Tuning**:
   - Zoo-Gym framework with RAIS technology
   - Constitutional AI alignment data
   - Multi-turn tool-calling trajectories
@@ -320,26 +315,23 @@ tools = {
   title={Zen Max: Reasoning-First Language Model with Test-Time Scaling},
   author={Hanzo AI and Zoo Labs Foundation},
   year={2025},
-  url={https://zenlm.org},
-  note={Based on Moonshot AI Kimi K2 Thinking architecture}
+  url={https://zenlm.org}
 }
 ```
 
 ## Acknowledgments
 
-- **Moonshot AI**: K2 Thinking architecture and training methodology
 - **Hanzo AI**: Constitutional AI training and Zen identity
 - **Zoo Labs Foundation**: Open AI research and community governance
 
 ## Links
 
 - **Website**: https://zenlm.org
-- **HuggingFace**: https://huggingface.co/zenlm/zen-max
-- **GitHub**: https://github.com/zenlm/zen
-- **Moonshot AI**: https://www.moonshot.cn/
-- **K2 Thinking**: https://platform.moonshot.cn/docs/intro#kimi-k2-thinking
+- **API**: https://api.hanzo.ai/v1
+- **HuggingFace**: https://huggingface.co/zenlm
+- **GitHub**: https://github.com/zenlm
 
 ---
 
-**Zen AI**: Clarity Through Intelligence  
+**Zen AI**: Clarity Through Intelligence
 *Now with reasoning at test-time*
