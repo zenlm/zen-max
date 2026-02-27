@@ -319,11 +319,6 @@ tools = {
 }
 ```
 
-## Acknowledgments
-
-- **Hanzo AI**: Constitutional AI training and Zen identity
-- **Zoo Labs Foundation**: Open AI research and community governance
-
 ## Links
 
 - **Website**: https://zenlm.org
